@@ -1,17 +1,18 @@
 <div align="center">
   <H1>
-    Название исследуемой задачи
+    Непрерывное время при построении нейроинтерфейса BCI
   </H1>
-  Тип научной работы<br><br>
-  Имя Отчество Фамилия, Имя Отчество Фамилия
+  Змушко Филипп Александрович
 </div><br>
 <div align="center">
-  Научный руководитель: степень Фамилия Имя Отчество <br>
-  Научный консультант(при наличии): степень Фамилия Имя Отчество
+  Научный руководитель: д.ф.-м.н. Стрижов Вадим Викторович
+  Научные консультант: Самохина Алина Максимовна
 </div>
 
 ## Аннотация
-Purus sit amet luctus venenatis lectus magna fringilla. Condimentum id venenatis a condimentum vitae sapien. Auctor neque vitae tempus quam pellentesque nec nam aliquam. Eget egestas purus viverra accumsan in. Nam aliquam sem et tortor. Donec et odio pellentesque diam volutpat commodo. Odio pellentesque diam volutpat commodo sed egestas. Sit amet dictum sit amet justo. Pellentesque sit amet porttitor eget. Imperdiet sed euismod nisi porta lorem mollis aliquam ut. Quis varius quam quisque id diam vel quam elementum. Ornare lectus sit amet est placerat in. Vulputate dignissim suspendisse in est ante. Elit sed vulputate mi sit amet mauris. Egestas sed tempus urna et pharetra pharetra. Viverra tellus in hac habitasse platea dictumst vestibulum rhoncus.
+    В задачах декодирования сигнала непрерывный процесс исследуется с помощью рекуррентных нейронных сетей (RNN), использующих дискретное представление о времени. Недавно появившиеся модели, основывающиеся на нейронных обыкновенных дифференциальных уравнений дают возможность рассматривать временные ряды как непрерывные во времени.
+    В данной работе исследуется задача декодирования сигнала через представление в виде непрерывной во времени функции. Проводится сравнение базовых моделей реккуретных нейронных сетей (RNN, CNN) с моделями на основе нейронных дифференциальных уравнений - обыкновенных (NODE) и управляемых (NCDE). Исследуются возможности данных моделей как для регулярных сигналов, так и для сигналов с пропущенными значениями. 
+
 
 ## Публикации по теме исследования
 1. 
