@@ -1,0 +1,64 @@
+\documentclass{article}
+\usepackage{arxiv}
+
+\usepackage[utf8]{inputenc}
+\usepackage[english, russian]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{url}
+\usepackage{booktabs}
+\usepackage{amsfonts}
+\usepackage{nicefrac}
+\usepackage{microtype}
+\usepackage{lipsum}
+\usepackage{graphicx}
+\usepackage{natbib}
+\usepackage{doi}
+
+
+\title{Непрерывное время при построении нейроинтерфейса BCI}
+
+\author{ Змушко Филипп \\
+	МФТИ \\
+	\texttt{zmushko.fa@phystech.edu} \\
+	%% examples of more authors
+	\And
+	Самохина Алина \\
+	МФТИ\\
+	\texttt{alina.samokhina@phystech.edu} \\
+	%% examples of more authors
+	\And
+	Стрижов Вадим \\
+	МФТИ\\
+}
+\date{}
+
+\renewcommand{\shorttitle}{\textit{arXiv} Template}
+
+%%% Add PDF metadata to help others organize their library
+%%% Once the PDF is generated, you can check the metadata with
+%%% $ pdfinfo template.pdf
+\hypersetup{
+pdftitle={A template for the arxiv style},
+pdfsubject={q-bio.NC, q-bio.QM},
+pdfauthor={David S.~Hippocampus, Elias D.~Striatum},
+pdfkeywords={First keyword, Second keyword, More},
+}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+	В задачах декодирования сигнала непрерывный процесс исследуется с помощью рекуррентных нейронных сетей (RNN), использующих дискретное представление о времени. Недавно появившиеся модели, основывающиеся на нейронных обыкновенных дифференциальных уравнений дают возможность рассматривать временные ряды как непрерывные во времени.
+    В данной работе исследуется задача декодирования сигнала через представление в виде непрерывной во времени функции. Проводится сравнение базовых моделей реккуретных нейронных сетей (RNN, CNN) с моделями на основе нейронных дифференциальных уравнений - обыкновенных (NODE) и управляемых (NCDE). Исследуются возможности данных моделей как для регулярных сигналов, так и для сигналов с пропущенными значениями. 
+\end{abstract}
+
+
+\keywords{Нейронные ОДУ \and Управляемые ДУ \and  временные ряды \and классификация}
+
+\section{Introduction}
+
+
+\bibliographystyle{unsrtnat}
+\bibliography{references}
+
+\end{document}
