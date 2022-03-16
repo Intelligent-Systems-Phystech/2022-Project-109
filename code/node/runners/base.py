@@ -27,17 +27,23 @@ class Learner(pl.LightningModule):
 
     def training_step(self, batch, batch_idx):
         self.model.train()
+        device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+
         if self.timestamps:
             x, t, y = batch
+            #x, t, y = x.to(device), t.to(device), y.to(device)
             y_hat = self.model.forward(x, t)
 
         else:
             x, y = batch
+            x, y = x.to(device), y.to(device)
             y_hat = self.model.forward(x)
 
         y_hat = y_hat.view(-1, y_hat.size(-1))
         y = y.view(-1)
-        loss = nn.CrossEntropyLoss()(y_hat, y)
+        
+
+        loss = nn.CrossEntropyLoss(weight=self.class_weights)(y_hat, y)
         preds = torch.argmax(y_hat.detach(), dim=-1)
         acc = self.accuracy(preds, y)
         f1_score = self.f1(preds, y)
@@ -45,20 +51,25 @@ class Learner(pl.LightningModule):
         self.log("train_acc", acc, prog_bar=True)
         self.log("train_f1", f1_score, prog_bar=True)
         self.log("train_loss", loss, prog_bar=True)
-        return {"loss": loss, "acc": acc, "f1": f1_score}
+        return {"loss": loss, "acc": acc, "f1": f1_score, 'preds': y_hat.detach()}
 
     def validation_step(self, batch, batch_idx):
         self.model.eval()
+        device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+
         if self.timestamps:
             x, t, y = batch
+            #x, t, y = x.to(device), t.to(device), y.to(device)
             y_hat = self.model.forward(x, t)
         else:
             x, y = batch
+            x, y = x.to(device), y.to(device)
             y_hat = self.model.forward(x)
 
         y_hat = y_hat.view(-1, y_hat.size(-1))
         y = y.view(-1)
-
+        
+        
         loss = nn.CrossEntropyLoss(weight=self.class_weights)(y_hat, y)
 
         preds = torch.argmax(y_hat, dim=1)
@@ -68,7 +79,7 @@ class Learner(pl.LightningModule):
         self.log("val_loss", loss, prog_bar=True)
         self.log("val_f1", f1_score, prog_bar=True)
         self.log("val_acc", acc, prog_bar=True)
-        return {"loss": loss, "acc": acc, "f1": f1_score}
+        return {"loss": loss, "acc": acc, "f1": f1_score, 'preds': y_hat.detach()}
 
     def test_step(self, batch, batch_idx):
         # Here we just reuse the validation_step for testing
