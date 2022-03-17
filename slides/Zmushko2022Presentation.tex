@@ -21,7 +21,7 @@
 \begin{document}
 
 %-----------------------------------------------------------------------------------------------------
-\begin{frame}{Доклад с одним слайдом}
+\begin{frame}{Непрерывное время при построении нейроинтерфейса}
 
 
 
@@ -30,10 +30,22 @@
 \includegraphics[width=1.0\textwidth]{data_visualization.png}
 
 \column{0.4\textwidth}
+\large
+
+\textbf{Цель}: решение задачи декодирования сигнала с использованием непрерывного по времени представления сигнала.
+
+
+
+
+\end{columns}
+\begin{columns}[c]
+\column{0.6\textwidth}
+\includegraphics[width=1.0\textwidth]{cde_continuous_time.png}
+\column{0.4\textwidth}
+
 \Large{\textbf{Neural ODE}}
 
 \normalsize
-\bigskip
 
 
 $\mathbf{h_{t+1}} = \mathbf{h_t} + f(\mathbf{h_t}, \theta)$
@@ -46,19 +58,10 @@ $\mathbf{h_{t+1}} = \mathbf{h_t} + f(\mathbf{h_t}, \theta)$
 $\frac{d\mathbf{h}(t)}{dt} = f(\mathbf{h_t}, t, \theta)$
 
 \normalsize
-\bigskip 
+
+\bigskip
 
 $\mathbf{h}_{t_1} = \mathbf{h}_{t_0} + \int_{t_0}^{t_1} f(\mathbf{h}, t, \theta) dt$
-
-
-\end{columns}
-\begin{columns}[c]
-\column{0.6\textwidth}
-\includegraphics[width=1.0\textwidth]{cde_continuous_time.png}
-\column{0.4\textwidth}
-\large
-
-\textbf{Цель}: декодирование сигнала моделями на основе Neural ODE.
 
 \end{columns}
 
